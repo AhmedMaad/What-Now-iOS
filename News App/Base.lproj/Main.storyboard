@@ -27,6 +27,9 @@
                                 <state key="normal" title="General News">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="openGeneralNews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PpL-nZ-7gg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahw-4A-JdD">
                                 <rect key="frame" x="16" y="191" width="343" height="59"/>
@@ -38,6 +41,9 @@
                                 <state key="normal" title="Technology News">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="openTechnologyNews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nEl-XX-JcS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk8-3z-ads">
                                 <rect key="frame" x="16" y="282" width="343" height="59"/>
@@ -49,6 +55,9 @@
                                 <state key="normal" title="Business News">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="openBusinessNews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NNN-kO-J04"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2557861669" green="0.43483097040000002" blue="0.47190738339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,26 +75,34 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="OJv-CE-vho" kind="presentation" identifier="newsPage" id="jIp-Tt-sHZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="25.637181409295355"/>
         </scene>
-        <!--View Controller-->
+        <!--News View Controller-->
         <scene sceneID="ew9-0C-yBl">
             <objects>
-                <viewController id="OJv-CE-vho" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OJv-CE-vho" customClass="NewsViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfl-aA-fg9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ip3-tA-QbY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ip3-tA-QbY">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.2557861669" green="0.43483097040000002" blue="0.47190738339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ip3-tA-QbY" firstAttribute="top" secondItem="wBH-XF-qKh" secondAttribute="top" id="075-N4-ka7"/>
+                            <constraint firstItem="ip3-tA-QbY" firstAttribute="trailing" secondItem="wBH-XF-qKh" secondAttribute="trailing" id="PBF-6m-a5c"/>
+                            <constraint firstItem="ip3-tA-QbY" firstAttribute="leading" secondItem="wBH-XF-qKh" secondAttribute="leading" id="bXc-5b-a45"/>
+                            <constraint firstItem="ip3-tA-QbY" firstAttribute="bottom" secondItem="wBH-XF-qKh" secondAttribute="bottom" id="yba-2w-Qb5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wBH-XF-qKh"/>
                     </view>
                 </viewController>

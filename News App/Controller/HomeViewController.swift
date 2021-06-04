@@ -11,10 +11,39 @@ import UIKit
 class HomeViewController: UIViewController {
 
     var articles = [Article]()
+    var cat: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    
+    @IBAction func openGeneralNews(_ sender: Any) {
+        cat = "general"
+        openNewsViewController()
+    }
+    
+    @IBAction func openTechnologyNews(_ sender: Any) {
+        cat = "technology"
+        openNewsViewController()
+    }
+    
+    @IBAction func openBusinessNews(_ sender: Any) {
+        cat = "business"
+        openNewsViewController()
+    }
+    
+    func openNewsViewController(){
+        performSegue(withIdentifier: "newsPage", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is NewsViewController {
+            let vc = segue.destination as? NewsViewController
+            vc?.cat = cat
+        }
     }
     
     
