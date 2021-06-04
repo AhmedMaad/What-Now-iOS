@@ -33,13 +33,19 @@ class NewsAPI{
         let task = URLSession.shared.dataTask(with: newsEndpoint) { (data, response, error) in
             guard let data = data else{
                 completionHandler([], error)
+                print("Error: " + (error?.localizedDescription)!)
                 return
             }
-            let response = try! JSONDecoder().decode(NewsModel.self, from: data)
-            //let articles = response.message.keys.map({$0})
+            do{
+            let response = try JSONDecoder().decode(NewsModel.self, from: data)
             let articles = response.articles
             print("Response: " + articles[0].urlToImage)
             completionHandler(articles, nil)
+            }
+            catch{
+                print("Error: " + error.localizedDescription)
+            }
+            
         }
         task.resume()
         
