@@ -16,18 +16,17 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    @IBAction func getNews(_ sender: Any) {
-        NewsAPI.getNews(country: "us", cat: "business", completionHandler: handleNewsResponse(articles:error:))
-    }
     
-    func handleNewsResponse(articles: [Article], error:Error?){
+    
+    /*NewsAPI.getNews(country: "us", cat: "business", completionHandler: handleNewsResponse(articles:error:))*/
+    
+    /*func handleNewsResponse(articles: [Article], error:Error?){
         print("Handling news list response")
         self.articles = articles
         DispatchQueue.main.async {
             print("Make the design")
         }
-    }
+    }*/
     
 }
 
