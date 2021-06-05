@@ -57,17 +57,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let title:String = String(self.articles[indexPath.row].title!.prefix(20) + "...")
-        /*if title != nil {*/
-            cell.textLabel?.text = title
-/*        }
-        else{
-            cell.textLabel?.text = "No Title"
-        }*/
+        cell.textLabel?.text = title
         
         
-        
-        /*cell.imageView?.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        if let url = URL(string: articles[indexPath.row].urlToImage){
+        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        if let url = URL(string: articles[indexPath.row].urlToImage ?? "nothing"){
             URLSession.shared.dataTask(with: url){(data, response, error) in
                 if let data = data {
                     DispatchQueue.main.async {
@@ -76,13 +70,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
                 else{
-                    cell.imageView?.image = UIImage(named: "news logo")
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = UIImage(named: "news logo")
+                    }
                 }
-            }.resume()
-        }*/
+                }.resume()
+        }
+        
         return cell
     }
-    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
