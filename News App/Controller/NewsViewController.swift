@@ -22,6 +22,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longpress))
+        tableView.addGestureRecognizer(longPress)
+        
         loadData()
     }
     
@@ -30,13 +34,27 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func handleNewsResponse(articles: [Article], error:Error?){
-        print("Handling news list response")
-        self.articles = articles
-        DispatchQueue.main.async {
-            print("Showing the data")
+        if articles.count > 0 {
+            print("Handling news list response")
             self.articles = articles
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                print("Showing the data")
+                self.articles = articles
+                self.tableView.reloadData()
+            }
         }
+        else{
+            print("News Failure...")
+            DispatchQueue.main.async {
+                self.showNewsDialog(message: error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
+    func showNewsDialog(message: String) {
+        let alertVC = UIAlertController(title: "Loading News Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
     }
     
     
@@ -44,9 +62,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         return self.articles.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    /*func numberOfSections(in tableView: UITableView) -> Int {
         return 2
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
@@ -78,6 +96,20 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         return cell
+    }
+    
+    //handling long press
+    @objc func longpress(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // your code here, get the row for the indexPath or do whatever you want
+                print("Long press Pressed:)")
+            }
+        }
+        
+        
     }
     
     
