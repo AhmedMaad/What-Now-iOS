@@ -10,8 +10,8 @@ import Foundation
 
 struct Article: Codable {
     
-    let title: String
-    let url: String
-    let urlToImage:String
+    let title: String?
+    let url: String?
+    let urlToImage:String?
     
 }

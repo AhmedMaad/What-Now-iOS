@@ -39,7 +39,7 @@ class NewsAPI{
             do{
             let response = try JSONDecoder().decode(NewsModel.self, from: data)
             let articles = response.articles
-            print("Request Response: " + articles[0].urlToImage)
+            //print("Request Response: " + articles[0].urlToImage)
             completionHandler(articles, nil)
             }
             catch{

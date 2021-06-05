@@ -26,7 +26,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func loadData(){
-        NewsAPI.getNews(country: "us", cat: "business", completionHandler: handleNewsResponse(articles:error:))
+        NewsAPI.getNews(country: "us", cat: cat, completionHandler: handleNewsResponse(articles:error:))
     }
     
     func handleNewsResponse(articles: [Article], error:Error?){
@@ -44,13 +44,29 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         return self.articles.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let title:String = String(self.articles[indexPath.row].title.prefix(20) + "...")
-        cell.textLabel?.text = title
+        let title:String = String(self.articles[indexPath.row].title!.prefix(20) + "...")
+        /*if title != nil {*/
+            cell.textLabel?.text = title
+/*        }
+        else{
+            cell.textLabel?.text = "No Title"
+        }*/
         
+        
+        
+        /*cell.imageView?.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         if let url = URL(string: articles[indexPath.row].urlToImage){
             URLSession.shared.dataTask(with: url){(data, response, error) in
                 if let data = data {
@@ -59,16 +75,19 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                         cell.imageView?.image = UIImage(data: data)
                     }
                 }
+                else{
+                    cell.imageView?.image = UIImage(named: "news logo")
+                }
             }.resume()
-        }
-        
-        
+        }*/
         return cell
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let urlString = articles[indexPath.row].url
-        UIApplication.shared.open(URL(string: urlString)!)
+        UIApplication.shared.open(URL(string: urlString!)!)
     }
     
 }
