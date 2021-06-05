@@ -33,37 +33,21 @@ class NewsAPI{
         let task = URLSession.shared.dataTask(with: newsEndpoint) { (data, response, error) in
             guard let data = data else{
                 completionHandler([], error)
-                print("Error: " + (error?.localizedDescription)!)
+                print("Request Error: " + (error?.localizedDescription)!)
                 return
             }
             do{
             let response = try JSONDecoder().decode(NewsModel.self, from: data)
             let articles = response.articles
-            print("Response: " + articles[0].urlToImage)
+            print("Request Response: " + articles[0].urlToImage)
             completionHandler(articles, nil)
             }
             catch{
-                print("Error: " + error.localizedDescription)
+                print(error)
             }
             
         }
         task.resume()
-        
-    }
-    
-    //"class" means that we don't want to make an instance from the News API in order to use it
-    class func requestImageFile(imageLinkURL: URL, completionHandler: @escaping (UIImage?, Error?)->Void){
-        print("Downloadng image...  ")
-        let imageDownloadTask = URLSession.shared.dataTask(with: imageLinkURL, completionHandler: { (dataI, response, error) in
-            guard let dataI = dataI else{
-                completionHandler(nil, error)
-                print("Download image error: " , error!.localizedDescription)
-                return
-            }
-            let downloadedImage = UIImage(data: dataI)
-            completionHandler(downloadedImage, nil)
-        })
-        imageDownloadTask.resume()
         
     }
     

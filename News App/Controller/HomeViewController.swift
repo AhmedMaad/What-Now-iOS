@@ -10,7 +10,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    var articles = [Article]()
     var cat: String = ""
     
     override func viewDidLoad() {
@@ -45,17 +44,6 @@ class HomeViewController: UIViewController {
             vc?.cat = cat
         }
     }
-    
-    
-    /*NewsAPI.getNews(country: "us", cat: "business", completionHandler: handleNewsResponse(articles:error:))*/
-    
-    /*func handleNewsResponse(articles: [Article], error:Error?){
-        print("Handling news list response")
-        self.articles = articles
-        DispatchQueue.main.async {
-            print("Make the design")
-        }
-    }*/
     
 }
 
