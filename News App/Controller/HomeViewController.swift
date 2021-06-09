@@ -12,12 +12,6 @@ class HomeViewController: UIViewController {
 
     var cat: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    
     @IBAction func openGeneralNews(_ sender: Any) {
         cat = "general"
         openNewsViewController()

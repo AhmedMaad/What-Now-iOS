@@ -14,6 +14,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var articles = [Article]()
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var progress: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +38,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func handleNewsResponse(articles: [Article], error:Error?){
         if articles.count > 0 {
             print("Handling news list response")
+            progress.isHidden = true
             self.articles = articles
             DispatchQueue.main.async {
                 print("Showing the data")
@@ -45,6 +48,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else{
             print("News Failure...")
+            progress.isHidden = true
             DispatchQueue.main.async {
                 self.showNewsDialog(message: error?.localizedDescription ?? "")
             }
@@ -61,10 +65,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articles.count
     }
-    
-    /*func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }*/
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
@@ -83,7 +83,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             URLSession.shared.dataTask(with: url){(data, response, error) in
                 if let data = data {
                     DispatchQueue.main.async {
-                        //print("Loaded: " + self.articles[indexPath.row].urlToImage)
                         cell.imageView?.image = UIImage(data: data)
                     }
                 }

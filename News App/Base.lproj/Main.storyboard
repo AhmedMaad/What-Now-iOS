@@ -118,17 +118,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="19M-V3-wsj">
+                                <rect key="frame" x="179" y="324" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Lsg-bU-p2I"/>
+                                    <constraint firstAttribute="height" constant="40" id="sWR-FB-80Q"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.2557861669" green="0.43483097040000002" blue="0.47190738339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ip3-tA-QbY" firstAttribute="top" secondItem="wBH-XF-qKh" secondAttribute="top" id="075-N4-ka7"/>
+                            <constraint firstItem="19M-V3-wsj" firstAttribute="top" secondItem="wBH-XF-qKh" secondAttribute="top" id="4kR-sM-Jqt"/>
                             <constraint firstItem="ip3-tA-QbY" firstAttribute="trailing" secondItem="wBH-XF-qKh" secondAttribute="trailing" id="PBF-6m-a5c"/>
+                            <constraint firstItem="wBH-XF-qKh" firstAttribute="trailing" secondItem="19M-V3-wsj" secondAttribute="trailing" id="R9u-hw-tr6"/>
                             <constraint firstItem="ip3-tA-QbY" firstAttribute="leading" secondItem="wBH-XF-qKh" secondAttribute="leading" id="bXc-5b-a45"/>
+                            <constraint firstItem="19M-V3-wsj" firstAttribute="leading" secondItem="wBH-XF-qKh" secondAttribute="leading" id="nxC-L6-o9y"/>
                             <constraint firstItem="ip3-tA-QbY" firstAttribute="bottom" secondItem="wBH-XF-qKh" secondAttribute="bottom" id="yba-2w-Qb5"/>
+                            <constraint firstItem="wBH-XF-qKh" firstAttribute="bottom" secondItem="19M-V3-wsj" secondAttribute="bottom" id="zSW-NO-rl1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wBH-XF-qKh"/>
                     </view>
                     <connections>
+                        <outlet property="progress" destination="19M-V3-wsj" id="BeA-Mq-HHs"/>
                         <outlet property="tableView" destination="ip3-tA-QbY" id="j5q-fo-ofj"/>
                     </connections>
                 </viewController>
