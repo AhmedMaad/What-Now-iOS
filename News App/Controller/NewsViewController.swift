@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var cat: String = ""
     var articles = [Article]()
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -104,11 +105,19 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 // your code here, get the row for the indexPath or do whatever you want
-                print("Long press Pressed:)")
+                print("You should save to database")
+                //Core Data User Information
+                /*var favorite = Favorite()
+                do {
+                    try NSManagedObjectContext.save(articles[indexPath.row].title)
+                    print("Saved to favorite")
+                } catch {
+                    print("Failure to save: \(error)")
+                }*/
             }
+            
+            
         }
-        
-        
     }
     
     

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D161083267106C200D0F9A3 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D161082267106C200D0F9A3 /* DataController.swift */; };
 		8D5B553C266A894600F5BB8A /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B553B266A894600F5BB8A /* NewsModel.swift */; };
 		8D5B553E266A899D00F5BB8A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B553D266A899D00F5BB8A /* Article.swift */; };
 		8D5B5540266A8AA200F5BB8A /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B553F266A8AA200F5BB8A /* NewsAPI.swift */; };
+		8DB2163D2670F6A60084CE18 /* favorites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DB2163B2670F6A60084CE18 /* favorites.xcdatamodeld */; };
 		8DE29F1C266AAD9B003EBB6C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE29F1B266AAD9B003EBB6C /* NewsViewController.swift */; };
 		8DF1D7ED266A69FD0018B836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1D7EC266A69FD0018B836 /* AppDelegate.swift */; };
 		8DF1D7EF266A69FD0018B836 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1D7EE266A69FD0018B836 /* HomeViewController.swift */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D161082267106C200D0F9A3 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		8D5B553B266A894600F5BB8A /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		8D5B553D266A899D00F5BB8A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8D5B553F266A8AA200F5BB8A /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
+		8DB2163C2670F6A60084CE18 /* favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = favorites.xcdatamodel; sourceTree = "<group>"; };
 		8DE29F1B266AAD9B003EBB6C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8DF1D7E9266A69FC0018B836 /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF1D7EC266A69FD0018B836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		8D9AB2E5266B9C80002B7140 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				8DB2163B2670F6A60084CE18 /* favorites.xcdatamodeld */,
+				8D161082267106C200D0F9A3 /* DataController.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -173,8 +179,10 @@
 			files = (
 				8D5B553E266A899D00F5BB8A /* Article.swift in Sources */,
 				8D5B553C266A894600F5BB8A /* NewsModel.swift in Sources */,
+				8DB2163D2670F6A60084CE18 /* favorites.xcdatamodeld in Sources */,
 				8D5B5540266A8AA200F5BB8A /* NewsAPI.swift in Sources */,
 				8DE29F1C266AAD9B003EBB6C /* NewsViewController.swift in Sources */,
+				8D161083267106C200D0F9A3 /* DataController.swift in Sources */,
 				8DF1D7EF266A69FD0018B836 /* HomeViewController.swift in Sources */,
 				8DF1D7ED266A69FD0018B836 /* AppDelegate.swift in Sources */,
 			);
@@ -374,6 +382,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8DB2163B2670F6A60084CE18 /* favorites.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8DB2163C2670F6A60084CE18 /* favorites.xcdatamodel */,
+			);
+			currentVersion = 8DB2163C2670F6A60084CE18 /* favorites.xcdatamodel */;
+			path = favorites.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8DF1D7E1266A69FB0018B836 /* Project object */;
 }
