@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         dataController.load()
         
-        let navigationController = window?.rootViewController as! UINavigationController
-        let homeViewController = navigationController.topViewController as! HomeViewController
-        homeViewController.dataController = dataController
+        let navigationController = window?.rootViewController as! HomeViewController
+        
+        //let homeViewController = navigationController.topViewController as! HomeViewController
+        navigationController.dataController = dataController
         
         return true
     }

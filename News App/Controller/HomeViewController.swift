@@ -37,6 +37,11 @@ class HomeViewController: UIViewController {
         if segue.destination is NewsViewController {
             let vc = segue.destination as? NewsViewController
             vc?.cat = cat
+            vc?.dataController = self.dataController
+        }
+        else if segue.destination is FavoriteViewController{
+            let vc = segue.destination as? FavoriteViewController
+            vc?.dataController = self.dataController
         }
     }
     

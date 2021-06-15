@@ -17,6 +17,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     
+    var dataController: DataController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -114,10 +116,14 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } catch {
                     print("Failure to save: \(error)")
                 }*/
+                let favorite: Favorite = Favorite(context: dataController.viewContext)
+                favorite.title = articles[indexPath.row].title
+                try? dataController.viewContext.save()
+                print("Data is saved isA")
             }
             
-            
         }
+        
     }
     
     
