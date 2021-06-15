@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     var cat: String = ""
+    var dataController: DataController!
     
     @IBAction func openGeneralNews(_ sender: Any) {
         cat = "general"
@@ -37,6 +38,10 @@ class HomeViewController: UIViewController {
             let vc = segue.destination as? NewsViewController
             vc?.cat = cat
         }
+    }
+    
+    @IBAction func openFavorites(_ sender: Any){
+        performSegue(withIdentifier: "favPage", sender: nil)
     }
     
 }

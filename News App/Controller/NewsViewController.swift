@@ -75,7 +75,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let title:String = String(self.articles[indexPath.row].title!.prefix(20) + "...")
+        let title:String = String(self.articles[indexPath.row].title!.prefix(25) + "...")
         cell.textLabel?.text = title
         
         

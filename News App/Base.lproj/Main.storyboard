@@ -59,11 +59,24 @@
                                     <action selector="openBusinessNews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NNN-kO-J04"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9r-La-6OO">
+                                <rect key="frame" x="59" y="405" width="257" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
+                                <state key="normal" title="Click to show Favorites">
+                                    <color key="titleColor" red="0.2079071938" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openFavorites:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UfY-TI-OAd"/>
+                                    <segue destination="JIM-eY-9rB" kind="presentation" identifier="favPage" id="4y0-K0-1U7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2557861669" green="0.43483097040000002" blue="0.47190738339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jk8-3z-ads" secondAttribute="trailing" constant="16" id="4d0-Kj-7jQ"/>
+                            <constraint firstItem="H9r-La-6OO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="9ot-xo-WaB"/>
                             <constraint firstItem="jk8-3z-ads" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="F0M-Ez-mof"/>
+                            <constraint firstItem="H9r-La-6OO" firstAttribute="top" secondItem="jk8-3z-ads" secondAttribute="bottom" constant="64" id="NOE-0i-6dD"/>
                             <constraint firstItem="ahw-4A-JdD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cIZ-aI-5NE"/>
                             <constraint firstItem="KKj-Ut-7yw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fwS-K7-3SW"/>
                             <constraint firstItem="KKj-Ut-7yw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hLq-jl-per"/>
@@ -71,6 +84,7 @@
                             <constraint firstItem="ahw-4A-JdD" firstAttribute="top" secondItem="KKj-Ut-7yw" secondAttribute="bottom" constant="32" id="jWd-Kd-O43"/>
                             <constraint firstItem="KKj-Ut-7yw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="r9i-Dk-ujG"/>
                             <constraint firstItem="jk8-3z-ads" firstAttribute="top" secondItem="ahw-4A-JdD" secondAttribute="bottom" constant="32" id="sLO-zo-mxa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H9r-La-6OO" secondAttribute="trailing" constant="59" id="syj-3e-7Bp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ahw-4A-JdD" secondAttribute="trailing" constant="16" id="yRX-66-veV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -82,6 +96,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="25.637181409295355"/>
+        </scene>
+        <!--Favorite View Controller-->
+        <scene sceneID="kGb-ra-S1M">
+            <objects>
+                <viewController id="JIM-eY-9rB" customClass="FavoriteViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z65-Wn-Imv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6BX-U4-kv0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qgf-dx-Qbq">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qgf-dx-Qbq" id="7wv-ha-dfL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6BX-U4-kv0" firstAttribute="trailing" secondItem="go4-J1-sx0" secondAttribute="trailing" id="8bx-W8-e9b"/>
+                            <constraint firstItem="6BX-U4-kv0" firstAttribute="bottom" secondItem="go4-J1-sx0" secondAttribute="bottom" id="CkK-k6-Gnd"/>
+                            <constraint firstItem="6BX-U4-kv0" firstAttribute="top" secondItem="go4-J1-sx0" secondAttribute="top" id="gyS-rI-I6y"/>
+                            <constraint firstItem="6BX-U4-kv0" firstAttribute="leading" secondItem="go4-J1-sx0" secondAttribute="leading" id="m0G-wO-vlT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="go4-J1-sx0"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6BX-U4-kv0" id="n0s-bG-afj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZk-Eg-174" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="769.56521739130437"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="ew9-0C-yBl">
